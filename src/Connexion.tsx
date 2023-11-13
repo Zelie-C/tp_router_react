@@ -22,17 +22,23 @@ const Connexion = () => {
 
     const handleConnexionClick = useCallback(() => {
         if (username == "admin" && password == "safeAdmin") {
-            navigate('/')
+            navigate('/', {state: {name: username}})
         }
     }, [username, password])
 
     return (
         <>
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" onChange={handleUsernameChange}/>
-            <label htmlFor="passwrd">Password</label>
-            <input type="password" id="passwrd" onChange={handlePasswordChange}/>
-            <button onClick={handleConnexionClick}>Se connecter</button>
+            <div className="connexion-form">
+                <div className="input-label">
+                    <label htmlFor="username">Username</label>
+                    <input type="text" id="username" onChange={handleUsernameChange}/>
+                </div>
+                <div className="input-label">
+                    <label htmlFor="passwrd">Password</label>
+                    <input type="password" id="passwrd" onChange={handlePasswordChange}/>
+                </div>
+                <button onClick={handleConnexionClick}>Se connecter</button>
+            </div>
         </>
     )
 }
